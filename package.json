@@ -1,12 +1,16 @@
 {
-  "name": "sample-react-rollup",
+  "name": "@ljourm/sample-react-rollup",
   "version": "0.1.0",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "repository": "git@github.com:ljourm/sample-react-rollup.git",
   "author": "ljourm <ljourm@gmail.com>",
   "license": "MIT",
-  "private": true,
+  "private": false,
+  "publishConfig": {
+    "access": "restricted",
+    "registry": "https://npm.pkg.github.com/"
+  },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^22.0.2",
     "@rollup/plugin-node-resolve": "^14.1.0",
@@ -27,6 +31,7 @@
   },
   "scripts": {
     "build": "rollup -c",
-    "clean": "rimraf dist"
+    "clean": "rimraf dist",
+    "prepublishOnly": "npm run clean && npm run build"
   }
 }
