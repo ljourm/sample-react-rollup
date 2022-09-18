@@ -2,6 +2,7 @@ import peerDepsExternal from "rollup-plugin-peer-deps-external";
 import commonjs from "@rollup/plugin-commonjs";
 import resolve from "@rollup/plugin-node-resolve";
 import typescript from "@rollup/plugin-typescript";
+import { terser } from 'rollup-plugin-terser';
 import autoprefixer from "autoprefixer";
 import postcss from "rollup-plugin-postcss";
 
@@ -22,10 +23,10 @@ export default {
     resolve(),
     commonjs(),
     typescript(),
+    terser(),
     postcss({
       plugins: [autoprefixer()],
       sourceMap: true,
-      extract: true,
     }),
   ],
 };
