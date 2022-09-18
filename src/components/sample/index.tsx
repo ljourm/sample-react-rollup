@@ -1,8 +1,7 @@
 import { infoLog } from "~/service/logger"
 import styles from "./index.module.scss"
 
-require("~/vendor/calculator.js")
-declare function add(a: number, b: number): number
+import { add } from "~/vendor/calculator"
 
 export interface SampleProps {
   value1: number,

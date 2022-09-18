@@ -12,14 +12,15 @@ export default {
   input: "src/index.ts",
   output: {
     file: packageJson.main,
-    format: "cjs",
+    format: "esm",
     sourcemap: true,
   },
+  treeshake: "safest",
   plugins: [
     peerDepsExternal(),
     typescript(),
     resolve(),
-    commonjs({ transformMixedEsModules: true }),
+    commonjs(),
     postcss({
       plugins: [autoprefixer()],
       sourceMap: true,
