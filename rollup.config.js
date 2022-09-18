@@ -12,7 +12,7 @@ export default {
   input: "src/index.ts",
   output: {
     file: packageJson.main,
-    format: "esm",
+    format: "cjs",
     sourcemap: true,
   },
   treeshake: "safest",
