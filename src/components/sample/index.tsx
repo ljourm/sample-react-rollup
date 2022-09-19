@@ -1,7 +1,7 @@
+import { useEffect, useState } from "react"
 import { infoLog } from "~/service/logger"
+import { add } from "~/utils/vendorLoader"
 import styles from "./index.module.scss"
-
-import { add } from "~/vendor/calculator"
 
 export interface SampleProps {
   value1: number,
@@ -9,10 +9,18 @@ export interface SampleProps {
 }
 
 export function Sample({ value1, value2 }: SampleProps) {
-  infoLog("rendered")
+  const [result, setResult] = useState(0)
+
+  useEffect(() => {
+    infoLog("initializing")
+
+    setResult(add(value1, value2))
+
+    infoLog("initialized")
+  }, [])
 
   return (<div className={styles.sample}>
     <span>{value1} + {value2} = </span>
-    <span>{add(value1, value2)}</span>
+    <span>{result}</span>
   </div>)
 }

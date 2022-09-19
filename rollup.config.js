@@ -20,7 +20,7 @@ export default {
     peerDepsExternal(),
     typescript(),
     resolve(),
-    commonjs(),
+    commonjs({ transformMixedEsModules: true }),
     postcss({
       plugins: [autoprefixer()],
       sourceMap: true,
