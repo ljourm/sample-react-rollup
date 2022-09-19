@@ -4,6 +4,23 @@
 
 RollupによってReactコンポーネントをバンドルし、GitHub PackagesにNPMを公開してみる。
 
+## Usage
+
+```sh
+# packageの導入
+$ yarn add -D @ljourm/sample-react-rollup
+```
+
+```tsx
+// コンポーネントの使用例
+import {Sample} from "@ljourm/sample-react-rollup";
+import "@ljourm/sample-react-rollup/dist/index.css";
+
+export function SampleComponent() {
+  return <Sample value1={1} value2={5} />;
+}
+```
+
 ## Features
 
 - `yarn build` の実行によって...
@@ -35,15 +52,11 @@ $ npm publish
 
 #### publicの場合
 
-`package.json` に `publishConfig.access = public` とある場合、public (制限なし) として公開される。
-
 ```sh
 yarn add -D @ljourm/sample-react-rollup
 ```
 
-#### restrictの場合
-
-`package.json` に `publishConfig.access = restrict` とある場合、restrict (制限あり) として公開される。
+#### restrict (private) の場合
 
 ```sh
 # .npmrc
